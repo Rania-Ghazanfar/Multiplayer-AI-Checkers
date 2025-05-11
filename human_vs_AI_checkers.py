@@ -300,8 +300,6 @@ class checkers:
             WIN.blit(start_label, (start_button.x + 30, start_button.y + 10))
             pygame.display.flip()
             for event in pygame.event.get():
-                print(player1_name)
-                print(player2_name)
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
@@ -317,14 +315,12 @@ class checkers:
                         active_input = None
                     #check name inputs
                     elif mode == "human":
-                        print("check input")
                         if name1_input.collidepoint(pos):
                             active_input = "player1"
                         elif name2_input.collidepoint(pos):
                             active_input = "player2"
                         else:
                             active_input = None
-                        print("end input")
                     #difficulty slider
                     elif mode == "ai" and difficulty_slider.collidepoint(pos):
                         ai_difficulty = min(5, max(1, round((pos[0] - difficulty_slider.x) / 50) + 1))
@@ -333,7 +329,6 @@ class checkers:
                     if start_button.collidepoint(pos):
                         if start_active:
                             if mode == "human":
-                                print("enter human")
                                 self.player1 = {
                                     'name': player1_name.strip(),
                                     'symbol': 'X',
